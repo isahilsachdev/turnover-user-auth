@@ -10,7 +10,6 @@ function Layout({ children }) {
   if (!token && (window.location.pathname === '/' || window.location.pathname === '/category')) {
     router.push("/signup", { scroll: false })
   } else if (window.location.pathname === '/') {
-    console.log("here")
     router.push("/category", { scroll: false })
   }
   return (
