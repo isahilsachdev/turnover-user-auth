@@ -10,7 +10,6 @@ function VerifyEmail({email}) {
 
   const sendOtp = async(email) => {
     const resp = await getVerificationOTP(email);
-    setOtp(resp?.toString().split(""))
     setDummyOtp(resp);
   }
   useEffect(() => {
