@@ -1,11 +1,12 @@
-import Layout from "@/components/Layout";
-import Image from "next/image";
+'use client'
+ 
+import { useRouter } from 'next/navigation'
+import { useEffect } from 'react'
+ 
+export default function Page() {
+  const router = useRouter()
+  // as we dont have a landing page, we redirect users to signup page
+  useEffect(() => {router.push('/signup')},[])
 
-export default function Home() {
-  return (
-    <Layout>
-      {/* Unused */}
-      Home page 
-    </Layout>
-  );
+  return null;
 }
