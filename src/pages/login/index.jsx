@@ -1,5 +1,6 @@
 // pages/LoginPage.jsx
 import Layout from '@/components/Layout';
+import { getUserToken } from '@/services/apiCalls';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 
@@ -27,9 +28,13 @@ function LoginPage() {
     setIsFormValid(validateEmail(email) && validatePassword(password));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    router.push('category')
+    const token = await getUserToken();
+    if (token) {
+      localStorage.setItem('token', token)
+      router.push('/category')
+    }
   };
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);

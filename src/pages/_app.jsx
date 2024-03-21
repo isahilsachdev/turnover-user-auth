@@ -2,10 +2,12 @@ import 'tailwindcss/tailwind.css';
 import '../globals.css';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import PrivateRoute from '@/components/PrivateRoute';
 
 const MyApp = ({ Component, pageProps }) => {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
+  const protectedRoutes = ['/category'];
 
   useEffect(() => {
     if (!router.isReady) return;
@@ -20,7 +22,9 @@ const MyApp = ({ Component, pageProps }) => {
 
   return (
     <>
-      <Component {...pageProps} />
+      <PrivateRoute protectedRoutes={protectedRoutes}>
+        <Component {...pageProps} />
+      </PrivateRoute>
     </>
   );
 };
