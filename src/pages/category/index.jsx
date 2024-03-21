@@ -70,7 +70,7 @@ function Category() {
         <div className="w-[576px] min-h-[380px] h-[fit-content] bg-white border border-[#C1C1C1] rounded-[20px] p-8">
           <h1 className="text-center text-[32px] font-semibold mb-4 leading-9">Please mark your interests!</h1>
           <p className="text-center text-[16px] mb-4 leading-9">We will keep you notified.</p>
-          <p className="font-medium px-4 text-[20px] mb-8 leading-9">My saved interests!</p>
+          <p className="font-medium px-4 text-[20px] mb-8 leading-9">My saved interests! <span>{`( ${selectedCategories?.length} / 100 )`}</span></p> 
           {/* Render categories */}
           <div className='px-4'>
             {(currentItems && currentItems.length > 0) ? (
